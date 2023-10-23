@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: blorbomancer_development
+  username: <%= ENV.fetch("BLORBOMANCER_DB_USER") %>
+  password: <%= ENV.fetch("BLORBOMANCER_DB_PW") %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
