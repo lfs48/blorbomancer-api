@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
     validates :username, :password_digest, presence: true
-    validates :username, uniqueness: true, length: {minimum: 3}
+    validates :username, uniqueness: true, length: {minimum: 3, maximum: 20}, format: {with: /\A[A-Za-z0-9-_]+\z/}
     has_secure_password
 
     def self.authenticate(username, password)
